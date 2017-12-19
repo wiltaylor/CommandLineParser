@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CommandLineParser.UnitTests.Helper;
 using Xunit;
-using FakeItEasy;
 using Ploeh.AutoFixture;
 using Shouldly;
 
@@ -14,7 +11,6 @@ namespace CommandLineParser.UnitTests
 
     public class FakeCommandHandler : CommandHandlerBase
     {
-        private readonly Action<string[]> _processCommand;
         public FakeCommandHandler(string primaryName, IEnumerable<string> names, string usageText, IEnumerable<SwitchInfo> switches)
         {
             PrimaryName = primaryName;

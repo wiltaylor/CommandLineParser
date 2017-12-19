@@ -52,7 +52,7 @@ namespace CommandLineParser
                     } : 
                     handler.Process(this, splitArgs);
             }
-            catch(Exception e)
+            catch
             {
                 return new[] {"Invalid switches passed in. Please use -? to list available switches."};
             }
