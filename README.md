@@ -43,7 +43,7 @@ First create a class to hold your command handler and inherit from CommandHandle
         {
             new SwitchInfo
             {
-                Names = new []{ "Test"}, //Names passed with --Test (not case senstive)
+                Names = new []{ "test"}, //Names passed with --test (not case senstive but you must put it lowercase here)
                 ShortNames = new [] {"t"}, //Short names are passed with -t (case sensetive)
                 UsageText = "Appends test to message", //Usage text that is shown when -? is passed.
                 ArgumentCount = 0 // How many arguments after the switch will it capture.
