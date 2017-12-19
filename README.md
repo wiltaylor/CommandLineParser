@@ -70,3 +70,17 @@ static void Main(string[] args)
 }
 ```
 
+# Bugs, Feature Requests
+* Please feel free to raise issues on this repository.
+
+# Contributing
+To contribute please do the following:
+
+* Raise an Issue on this repository.
+* Fork this repository.
+* Make your changes.
+* Make Unit tests for your changes that pass.
+* Make sure other unit tests pass.
+* Rebase so your pull request is a single commit.
+* Send a pull request and reference your issue.
+
