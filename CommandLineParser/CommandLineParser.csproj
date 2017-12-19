@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Authors>Wil Taylor</Authors>
     <Company>Wil Taylor</Company>
     <Product>WilTaylor.CommandLineParser</Product>
@@ -13,9 +13,9 @@
     <RepositoryUrl></RepositoryUrl>
     <PackageTags>Command Line, Argument, Parameter</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.1.0.0</AssemblyVersion>
-    <FileVersion>0.1.0.0</FileVersion>
-    <PackageReleaseNotes>3.Branch.master.Sha.1a34c761e847d191efb8827ae0be9e80a47e7605</PackageReleaseNotes>
+    <AssemblyVersion>0.1.1.0</AssemblyVersion>
+    <FileVersion>0.1.1.0</FileVersion>
+    <PackageReleaseNotes>Branch.master.Sha.2ff01c4c470cece7072ec56ac9c0f6c607f54c38</PackageReleaseNotes>
     <PackageId>WilTaylor.CommandLineParser</PackageId>
   </PropertyGroup>
 

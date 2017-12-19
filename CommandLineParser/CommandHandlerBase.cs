@@ -116,7 +116,10 @@ namespace CommandLineParser
         /// <returns></returns>
         public bool IsSwitchSet(string name)
         {
-            var key = Switches.FirstOrDefault(s => (s.Names.Contains(name.ToLower()) || name == "?") || s.ShortNames.Contains(name));
+            if (name == "?")
+                return _switchData.ContainsKey("?");
+
+            var key = Switches.FirstOrDefault(s => s.Names.Contains(name.ToLower()) || s.ShortNames.Contains(name));
 
             if (key == null)
                 return false;

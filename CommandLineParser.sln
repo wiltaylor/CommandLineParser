@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandLineParser", "Comman
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandLineParser.UnitTests", "CommandLineParser.UnitTests\CommandLineParser.UnitTests.csproj", "{7441B5EC-798C-4EC8-A5AD-039666591C0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp", "ExampleApp\ExampleApp.csproj", "{9EFB81B6-D44D-4E95-BF9E-6C4CDF746359}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7441B5EC-798C-4EC8-A5AD-039666591C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7441B5EC-798C-4EC8-A5AD-039666591C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7441B5EC-798C-4EC8-A5AD-039666591C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EFB81B6-D44D-4E95-BF9E-6C4CDF746359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EFB81B6-D44D-4E95-BF9E-6C4CDF746359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EFB81B6-D44D-4E95-BF9E-6C4CDF746359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EFB81B6-D44D-4E95-BF9E-6C4CDF746359}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

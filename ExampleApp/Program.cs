@@ -13,7 +13,7 @@ namespace ExampleApp
         {
             var handler = new CommandParser(new[] { new VersionCommand()});
 
-            foreach(var line in handler.Process(new[] {"version", "--long", "--notdefined"}))
+            foreach(var line in handler.Process(new[] {"version", "--long"}))
                 Console.WriteLine(line);
 
             Console.Read();
