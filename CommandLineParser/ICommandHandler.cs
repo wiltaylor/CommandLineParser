@@ -8,6 +8,7 @@ namespace CommandLineParser
         IEnumerable<string> Names { get; }
         string ParentName { get; }
         IEnumerable<SwitchInfo> Switches { get; }
+        bool ProcessSwitches { get; }
 
         /// <summary>
         /// Help text printed to the console when usage is displayed.

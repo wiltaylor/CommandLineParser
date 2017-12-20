@@ -30,6 +30,8 @@ namespace CommandLineParser
         /// </summary>
         public virtual IEnumerable<SwitchInfo> Switches => new SwitchInfo[] { };
 
+        public virtual bool ProcessSwitches => true;
+
         /// <summary>
         /// Usage text help message for this command. Will show up when user types -? at the command line."
         /// </summary>

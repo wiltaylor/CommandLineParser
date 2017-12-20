@@ -28,14 +28,15 @@ namespace CommandLineParser
             if (args[0].StartsWith("-"))
                 return new [] { "Unexpected - when command was expected. Please start with command." };
             
-            var handler = _commandHandlers.FirstOrDefault(h => h.ParentName == command && h.Names.Contains(args[0]));
+            var handler = _commandHandlers.FirstOrDefault(h => h.ParentName == command && h.Names.Contains(args[0])) ??
+                          _commandHandlers.FirstOrDefault(h => h.ParentName == command && h.Names.Contains("default")); //If default handler is defined call it instead.
 
             if (handler == null)
                 return Usage(command);
 
             try
             {
-                var splitArgs = ExtractSwitches(handler, args.Skip(1));
+                var splitArgs = ExtractSwitches(handler, handler.Names.Contains("default") ? args : args.Skip(1)); //If using default handler pass the command in as first argument.
 
                 if (handler.IsSwitchSet("?"))
                 {
@@ -67,6 +68,9 @@ namespace CommandLineParser
 
         private string[] ExtractSwitches(ICommandHandler handler, IEnumerable<string> args)
         {
+            if (!handler.ProcessSwitches)
+                return args.ToArray();
+
             var result = new List<string>();
 
             var skipArgs = 0;

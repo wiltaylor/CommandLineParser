@@ -1,6 +1,4 @@
-﻿using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using CommandLineParser.UnitTests.Helper;
 using FakeItEasy;
 using Ploeh.AutoFixture;
@@ -94,6 +92,7 @@ namespace CommandLineParser.UnitTests
             var commandHandler = fixture.Freeze<ICommandHandler>();
             A.CallTo(() => commandHandler.Names).Returns(fixture.CreateMany<string>());
             A.CallTo(() => commandHandler.Switches).Returns(fixture.CreateMany<SwitchInfo>());
+            A.CallTo(() => commandHandler.ProcessSwitches).Returns(true);
             var sut = fixture.Create<CommandParser>();
 
             //Act
@@ -145,6 +144,7 @@ namespace CommandLineParser.UnitTests
             var commandHandler = fixture.Freeze<ICommandHandler>();
             A.CallTo(() => commandHandler.Names).Returns(fixture.CreateMany<string>());
             A.CallTo(() => commandHandler.Switches).Returns(new[] { new SwitchInfo { Names = fixture.CreateMany<string>(), ArgumentCount = 2 } });
+            A.CallTo(() => commandHandler.ProcessSwitches).Returns(true);
             var sut = fixture.Create<CommandParser>();
 
             //Act
@@ -220,6 +220,25 @@ namespace CommandLineParser.UnitTests
             //Assert
             result.ShouldContain(commandHandler.PrimaryName);
 
+        }
+
+        [Fact]
+        public void When_CallingCommandHandlerWithHandleSwitchesSetToFalse_Should_PassSwitchesAsArgs()
+        {
+            //Arrange
+            var fixture = TestHelper.NewFixture();
+            var commandHandler = fixture.Freeze<ICommandHandler>();
+            var sut = fixture.Create<CommandParser>();
+            A.CallTo(() => commandHandler.Names).Returns(fixture.CreateMany<string>());
+            A.CallTo(() => commandHandler.PrimaryName).Returns(commandHandler.Names.First());
+            A.CallTo(() => commandHandler.ProcessSwitches).Returns(false);
+
+            //Act
+            sut.Process(new [] { commandHandler.PrimaryName, "--switch" });
+
+            //Assert
+            A.CallTo(() => commandHandler.Process(A<ICommandParser>.Ignored, A<string[]>.Ignored))
+                .WhenArgumentsMatch(args => ((string[]) args[1])[0] == "--switch").MustHaveHappened();
         }
     }
 }
