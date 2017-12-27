@@ -9,6 +9,7 @@ var SolutionFile = RepoRootFolder + "/CommandLineParser.sln";
 var ToolsFolder = RepoRootFolder + "/Tools";
 
 var nugetAPIKey = EnvironmentVariable("NUGETAPIKEY");
+var nugetPersonalAPIKey = EnvironmentVariable("PERSONALNUGETAPIKEY");
 
 var target = Argument("target", "Default");
 
@@ -109,6 +110,15 @@ Task("CommandArgs.Deploy.NuGet")
         new NuGetPushSettings{
             Source = "https://api.nuget.org/v3/index.json",
             ApiKey = nugetAPIKey
+        });
+    });
+
+Task("CommandArgs.Deploy.NuGet.Personal")
+    .Does(() => {
+        NuGetPush(RepoRootFolder + "/CommandLineParser/Bin/Release/WilTaylor.CommandLineParser." + version.SemVer + ".nupkg",
+        new NuGetPushSettings{
+            Source = "https://www.myget.org/F/win32io/api/v2/package",
+            ApiKey = nugetPersonalAPIKey
         });
     });
 

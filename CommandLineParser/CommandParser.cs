@@ -125,7 +125,7 @@ namespace CommandLineParser
             result.AddRange(_commandHandlers
                 .Where(c => c.ParentName == command)
                 .OrderBy(c => c.UsagePriority)
-                .Select(c => c.UsageText));
+                .Select(c => $"{c.PrimaryName} - {c.UsageText}"));
 
             return result;
         }
